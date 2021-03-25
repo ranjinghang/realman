@@ -1,0 +1,7 @@
+target/
+src/main/resources/rebel.xml
+.project
+.idea/workspace.xml
+.settings/org.eclipse.m2e.core.prefs
+.idea/
+mftcc-platform-web.iml

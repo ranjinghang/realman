@@ -4,15 +4,15 @@
 
 <!--teacherMapper-->
 
-<mapper namespace="com.liujiajun.mapper.TeacherMapperCustom">
-    <select id="findByPaging"  resultType="TeacherCustom">
+<mapper namespace="com.honner.mapper.TeacherMapperCustom">
+    <select id="findByPaging"  resultType="com.honner.po.TeacherCustom">
         select teacher.*, college.collegeName
         from teacher, college
         WHERE teacher.collegeID = college.collegeID
     </select>
 
     <!--根据姓名模糊查找课程-->
-    <select id="selectByName" resultType="teacherCustom" parameterType="teacherCustom" >
+    <select id="selectByName" resultType="com.honner.po.TeacherCustom" parameterType="com.honner.po.TeacherCustom" >
         select teacher.*, college.collegeName
         from teacher, college
         where teacher.collegeID = college.collegeID

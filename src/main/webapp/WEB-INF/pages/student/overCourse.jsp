@@ -18,23 +18,24 @@
 
 </head>
 <body>
-	<!-- 顶栏 -->
-	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
-	<div class="container" id="content">
-		<div class="row">
-			<jsp:include page="menu.jsp"></jsp:include>
-			<div class="col-md-10">
-				<div class="panel panel-default">
-				    <div class="panel-heading">
-						<div class="row">
-					    	<h1 class="col-md-5">已修课程</h1>
-						</div>
-				    </div>
-				    <table class="table table-bordered">
-					        <thead>
-					            <tr>
-									<th>课程号</th>
+<!-- 顶栏 -->
+<jsp:include page="top.jsp"></jsp:include>
+<!-- 中间主体 -->
+<div class="container" id="content">
+    <div class="row">
+        <jsp:include page="menu.jsp"></jsp:include>
+        <div class="col-md-10">
+            <jsp:include page="gonggao.jsp"></jsp:include>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h1 class="col-md-5">已修课程</h1>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>课程号</th>
 									<th>课程名称</th>
 									<th>授课老师编号</th>
 									<th>上课时间</th>

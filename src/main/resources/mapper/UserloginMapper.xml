@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liujiajun.mapper.UserloginMapper" >
-  <resultMap id="BaseResultMap" type="com.liujiajun.po.Userlogin" >
+<mapper namespace="com.honner.mapper.UserloginMapper" >
+  <resultMap id="BaseResultMap" type="com.honner.po.Userlogin" >
     <id column="userID" property="userid" jdbcType="INTEGER" />
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     userID, userName, password, role
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.liujiajun.po.UserloginExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.honner.po.UserloginExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from userlogin
     where userID = #{userid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.liujiajun.po.UserloginExample" >
+  <delete id="deleteByExample" parameterType="com.honner.po.UserloginExample" >
     delete from userlogin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.liujiajun.po.Userlogin" >
+  <insert id="insert" parameterType="com.honner.po.Userlogin" >
     insert into userlogin (userID, userName, password, 
       role)
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{role,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liujiajun.po.Userlogin" >
+  <insert id="insertSelective" parameterType="com.honner.po.Userlogin" >
     insert into userlogin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.liujiajun.po.UserloginExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.honner.po.UserloginExample" resultType="java.lang.Integer" >
     select count(*) from userlogin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liujiajun.po.Userlogin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.honner.po.Userlogin" >
     update userlogin
     <set >
       <if test="username != null" >
@@ -186,7 +186,7 @@
     </set>
     where userID = #{userid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liujiajun.po.Userlogin" >
+  <update id="updateByPrimaryKey" parameterType="com.honner.po.Userlogin" >
     update userlogin
     set userName = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

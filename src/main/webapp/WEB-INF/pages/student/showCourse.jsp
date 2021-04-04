@@ -13,28 +13,37 @@
 	<!-- 引入JQuery  bootstrap.js-->
 	<script src="/js/jquery-3.2.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var chufenFlag = ${chufenFlag};
+		if (chufenFlag === "1") {
+			alert("请注意的诚信评分低于70");
+		}
+	</script>
 
 	<%--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--%>
 
 </head>
 <body>
-	<!-- 顶栏 -->
-	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
-	<div class="container" id="content">
-		<div class="row">
-			<jsp:include page="menu.jsp"></jsp:include>
-			<div class="col-md-10">
-				<div class="panel panel-default">
-				    <div class="panel-heading">
-						<div class="row">
-					    	<h1 class="col-md-5">课程列表</h1>
-							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="/student/searchCourse?page=1&pageSize=4" id="form1" method="post">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="请输入课程名" name="findByName" id="findByName">
-									<span class="input-group-addon btn" id="sub">搜索</span>
-								</div>
-							</form>
+<!-- 顶栏 -->
+<jsp:include page="top.jsp"></jsp:include>
+<!-- 中间主体 -->
+<div class="container" id="content">
+	<div class="row">
+		<jsp:include page="menu.jsp"></jsp:include>
+		<div class="col-md-10">
+			<jsp:include page="gonggao.jsp"></jsp:include>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="row">
+						<h1 class="col-md-5">课程列表</h1>
+						<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;"
+							  action="/student/searchCourse?page=1&pageSize=4" id="form1" method="post">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="请输入课程名" name="findByName"
+									   id="findByName">
+								<span class="input-group-addon btn" id="sub">搜索</span>
+							</div>
+						</form>
 
 						</div>
 				    </div>
@@ -88,7 +97,8 @@
 						</div>
 					</div>
 
-					<%--分页--%>
+
+				<%--分页--%>
 					<div class="panel-footer">
 						<nav style="text-align: center">
 							<ul class="pagination">

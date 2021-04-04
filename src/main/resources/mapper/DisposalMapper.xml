@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.honner.mapper.DisposalMapper">
+
+    <insert id="insertDispoal" parameterType="com.honner.po.Disposal">
+        INSERT INTO `disposal` (`student_id`, `admin_id`, `content`)
+        VALUES (
+                #{studentId,jdbcType=INTEGER},
+                #{adminId,jdbcType=INTEGER},
+                #{conetnt,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="findDispoalByStudentId" resultType="com.honner.po.Disposal">
+        SELECT
+            id,
+            student_id AS studentId,
+            admin_id AS adminId,
+            content AS content,
+            create_time AS createTime,
+            shensu
+        FROM disposal
+        WHERE student_id = ${studentId}
+    </select>
+
+    <select id="findDispoalByAdminId" resultType="com.honner.po.Disposal">
+        SELECT
+                id,
+                student_id AS studentId,
+                admin_id AS adminId,
+                content AS content,
+                create_time AS createTime,
+                shensu
+        FROM disposal
+        WHERE admin_id= ${adminId}
+    </select>
+
+    <update id="updateById">
+        UPDATE disposal
+        <set>
+            <if test="studentId != null and studentId != ''">
+                student_id = #{studentId,jdbcType=INTEGER}
+            </if>
+            <if test="adminId != null and adminId != ''">
+                admin_id = #{adminId,jdbcType=INTEGER}
+            </if>
+            <if test="content != null and content != ''">
+                content = #{conetnt,jdbcType=VARCHAR}
+            </if>
+            <if test="shensu != null and shensu != ''">
+                shensu = #{shensu,jdbcType=VARCHAR}
+            </if>
+        </set>
+        WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="findById" resultType="com.honner.po.Disposal">
+        SELECT
+                id,
+                student_id AS studentId,
+                admin_id AS adminId,
+                content AS content,
+                create_time AS createTime,
+                shensu
+        FROM disposal
+        WHERE id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>

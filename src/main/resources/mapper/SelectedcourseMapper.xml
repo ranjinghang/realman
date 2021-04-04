@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liujiajun.mapper.SelectedcourseMapper" >
-  <resultMap id="BaseResultMap" type="com.liujiajun.po.Selectedcourse" >
+<mapper namespace="com.honner.mapper.SelectedcourseMapper" >
+  <resultMap id="BaseResultMap" type="com.honner.po.Selectedcourse" >
     <result column="courseID" property="courseid" jdbcType="INTEGER" />
     <result column="studentID" property="studentid" jdbcType="INTEGER" />
     <result column="mark" property="mark" jdbcType="INTEGER" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     courseID, studentID, mark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.liujiajun.po.SelectedcourseExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.honner.po.SelectedcourseExample" >
     select
     <if test="distinct" >
       distinct
@@ -81,19 +81,19 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.liujiajun.po.SelectedcourseExample" >
+  <delete id="deleteByExample" parameterType="com.honner.po.SelectedcourseExample" >
     delete from selectedcourse
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.liujiajun.po.Selectedcourse" >
+  <insert id="insert" parameterType="com.honner.po.Selectedcourse" >
     insert into selectedcourse (courseID, studentID, mark
       )
     values (#{courseid,jdbcType=INTEGER}, #{studentid,jdbcType=INTEGER}, #{mark,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.liujiajun.po.Selectedcourse" >
+  <insert id="insertSelective" parameterType="com.honner.po.Selectedcourse" >
     insert into selectedcourse
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="courseid != null" >
@@ -118,7 +118,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.liujiajun.po.SelectedcourseExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.honner.po.SelectedcourseExample" resultType="java.lang.Integer" >
     select count(*) from selectedcourse
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

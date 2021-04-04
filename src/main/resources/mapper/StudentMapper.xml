@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liujiajun.mapper.StudentMapper" >
-  <resultMap id="BaseResultMap" type="com.liujiajun.po.Student" >
+<mapper namespace="com.honner.mapper.StudentMapper" >
+  <resultMap id="BaseResultMap" type="com.honner.po.Student" >
     <id column="userID" property="userid" jdbcType="INTEGER" />
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="birthYear" property="birthyear" jdbcType="DATE" />
     <result column="grade" property="grade" jdbcType="DATE" />
     <result column="collegeID" property="collegeid" jdbcType="INTEGER" />
+    <result column="course" property="course" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,11 +69,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    userID, userName, sex, birthYear, grade, collegeID
+    userID, userName, sex, birthYear, grade, collegeID,course
   </sql>
 
   <!--之前的根据姓名模糊查找-->
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.liujiajun.po.StudentExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.honner.po.StudentExample" >
     select
     <if test="distinct" >
       distinct
@@ -100,14 +101,14 @@
     where userID = #{userid,jdbcType=INTEGER}
   </delete>
 
-  <delete id="deleteByExample" parameterType="com.liujiajun.po.StudentExample" >
+  <delete id="deleteByExample" parameterType="com.honner.po.StudentExample" >
     delete from student
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
 
-  <insert id="insert" parameterType="com.liujiajun.po.Student" >
+  <insert id="insert" parameterType="com.honner.po.Student" >
     insert into student (userID, userName, sex, 
       birthYear, grade, collegeID
       )
@@ -116,7 +117,7 @@
       )
   </insert>
 
-  <insert id="insertSelective" parameterType="com.liujiajun.po.Student" >
+  <insert id="insertSelective" parameterType="com.honner.po.Student" >
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -160,7 +161,7 @@
     </trim>
   </insert>
 
-  <select id="countByExample" parameterType="com.liujiajun.po.StudentExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.honner.po.StudentExample" resultType="java.lang.Integer" >
     select count(*) from student
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -207,7 +208,7 @@
     </if>
   </update>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.liujiajun.po.Student" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.honner.po.Student" >
     update student
     <set >
       <if test="username != null" >
@@ -229,13 +230,14 @@
     where userID = #{userid,jdbcType=INTEGER}
   </update>
 
-  <update id="updateByPrimaryKey" parameterType="com.liujiajun.po.Student" >
+  <update id="updateByPrimaryKey" parameterType="com.honner.po.Student" >
     update student
     set userName = #{username,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       birthYear = #{birthyear,jdbcType=DATE},
       grade = #{grade,jdbcType=DATE},
-      collegeID = #{collegeid,jdbcType=INTEGER}
+      collegeID = #{collegeid,jdbcType=INTEGER},
+      course = #{course,jdbcType=INTEGER}
     where userID = #{userid,jdbcType=INTEGER}
   </update>
 

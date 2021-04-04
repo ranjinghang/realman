@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.liujiajun.mapper.StudentMapperCustom">
+<mapper namespace="com.honner.mapper.StudentMapperCustom">
 
 
-    <resultMap id="BaseResultMap" type="com.liujiajun.po.Student" >
+    <resultMap id="BaseResultMap" type="com.honner.po.Student" >
         <id column="userID" property="userid" jdbcType="INTEGER" />
         <result column="userName" property="username" jdbcType="VARCHAR" />
         <result column="sex" property="sex" jdbcType="VARCHAR" />
@@ -50,7 +50,7 @@
 
 
     <!--一对多查询-->
-    <resultMap id="StudentAndSelectCourseResultMap" type="StudentCustom">
+    <resultMap id="StudentAndSelectCourseResultMap" type="com.honner.po.StudentCustom">
         <!--配置映射的订单信息
             property 的值应跟 该vo 的变量名相同
             column 的值，应与对应的数据库 表字段名相同
@@ -66,12 +66,12 @@
             property： 将关联查询到的多条信息映射到 vo 哪个属性
             ofType：映射到集合属性中 pojo 的类型
         -->
-        <collection property="selectedCourseList" ofType="SelectedCourseCustom">
+        <collection property="selectedCourseList" ofType="com.honner.po.SelectedCourseCustom">
             <result column="courseID" property="courseid"/>
             <result column="studentID" property="studentid"/>
             <result column="mark" property="mark"/>
             <!--配置映射的关系的课程信息-->
-            <association property="courseCustom" javaType="CourseCustom">
+            <association property="courseCustom" javaType="com.honner.po.CourseCustom">
                 <id column="courseID" property="courseid"/>
                 <result column="courseName" property="coursename"/>
                 <result column="teacherID" property="teacherid"/>
@@ -85,13 +85,13 @@
         </collection>
     </resultMap>
 
-    <select id="findByPaging" resultType="StudentCustom">
+    <select id="findByPaging" resultType="com.honner.po.StudentCustom">
         select student.*, college.collegeName
         from student, college
         WHERE student.collegeID = college.collegeID
     </select>
 
-    <select id="selectByName" resultType="studentCustom" parameterType="studentCustom" >
+    <select id="selectByName" resultType="com.honner.po.StudentCustom" parameterType="com.honner.po.StudentCustom" >
         <!--<select id="selectByName" resultMap="studentCustom" parameterType="studentCustom" >-->
         select student.*, college.collegeName
         from student, college

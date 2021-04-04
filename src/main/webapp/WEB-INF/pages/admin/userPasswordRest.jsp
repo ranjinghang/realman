@@ -58,23 +58,31 @@
 		</div>
 	</div>
 	<div class="container" id="footer">
-	<div class="row">
-		<div class="col-md-12"></div>
-	</div>
+		<div class="row">
+			<div class="col-md-12"></div>
+		</div>
 	</div>
 </body>
 <script>
-    $("#nav li:nth-child(4)").addClass("active")
+	$("#nav li:nth-child(7)").addClass("active")
 
-    function check() {
-        if(reset.username.value==""||reset.username.value==null)
-        {alert("请输入账户名称");return false;}
-        if(reset.password.value==""||reset.password.value==null)
-        {alert("请输入重置密码");return false;}
-        if(reset.password2.value==""||reset.password2.value==null)
-        {alert("请输入再次输入密码");return false;}
-        if(reset.password.value != reset.password2.value)
-        {alert("两次密码不正确");return false;}
+	function check() {
+		if (reset.username.value == "" || reset.username.value == null) {
+			alert("请输入账户名称");
+			return false;
+		}
+		if (reset.password.value == "" || reset.password.value == null) {
+			alert("请输入重置密码");
+			return false;
+		}
+		if (reset.password2.value == "" || reset.password2.value == null) {
+			alert("请输入再次输入密码");
+			return false;
+		}
+		if (reset.password.value != reset.password2.value) {
+			alert("两次密码不正确");
+			return false;
+		}
     }
 </script>
 </html>

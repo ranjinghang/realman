@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liujiajun.mapper.TeacherMapper" >
-  <resultMap id="BaseResultMap" type="com.liujiajun.po.Teacher" >
+<mapper namespace="com.honner.mapper.TeacherMapper" >
+  <resultMap id="BaseResultMap" type="com.honner.po.Teacher" >
     <id column="userID" property="userid" jdbcType="INTEGER" />
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List" >
     userID, userName, sex, birthYear, degree, title, grade, collegeID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.liujiajun.po.TeacherExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.honner.po.TeacherExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,7 +96,7 @@
     delete from teacher
     where userID = #{userid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.liujiajun.po.TeacherExample" >
+  <delete id="deleteByExample" parameterType="com.honner.po.TeacherExample" >
     delete from teacher
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -104,7 +104,7 @@
   </delete>
 
   <!--保存教师信息-->
-  <insert id="insert" parameterType="com.liujiajun.po.Teacher" >
+  <insert id="insert" parameterType="com.honner.po.Teacher" >
     insert into teacher (userID, userName, sex, 
       birthYear, degree, title, 
       grade, collegeID)
@@ -113,7 +113,7 @@
       #{grade,jdbcType=DATE}, #{collegeid,jdbcType=INTEGER})
   </insert>
 
-  <insert id="insertSelective" parameterType="com.liujiajun.po.Teacher" >
+  <insert id="insertSelective" parameterType="com.honner.po.Teacher" >
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.liujiajun.po.TeacherExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.honner.po.TeacherExample" resultType="java.lang.Integer" >
     select count(*) from teacher
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -221,7 +221,7 @@
     </if>
   </update>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.liujiajun.po.Teacher" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.honner.po.Teacher" >
     update teacher
     <set >
       <if test="username != null" >
@@ -250,7 +250,7 @@
   </update>
 
   <!--根据id更新老师信息-->
-  <update id="updateByPrimaryKey" parameterType="com.liujiajun.po.Teacher" >
+  <update id="updateByPrimaryKey" parameterType="com.honner.po.Teacher" >
     update teacher
     set userName = #{username,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},

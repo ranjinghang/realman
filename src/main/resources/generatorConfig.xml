@@ -6,7 +6,8 @@
 
 <generatorConfiguration>
     <!--在左侧《外部库》中找mysql，复制路径-->
-    <classPathEntry location="H:\Maven\maven_repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>
+    <classPathEntry
+            location="D:\\localRepository\\mysql\\mysql-connector-java\\8.0.18\\mysql-connector-java-8.0.18.jar"/>
 
     <context id="MysqlTables" targetRuntime="MyBatis3">
         <!--创建Java类时是否取消生成注释-->
@@ -18,14 +19,14 @@
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/EducationalManagementSystem"
                         userId="root"
-                        password="root">
+                        password="Ran1995129@">
         </jdbcConnection>
 
         <!-- 指定javaBean生成的位置
             targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
             targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
          -->
-        <javaModelGenerator targetPackage="com.liujiajun.po" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.honner.po" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
             <property name="trimStrings" value="true"/>
@@ -39,7 +40,7 @@
         </sqlMapGenerator>
 
         <!-- 指定mapper接口生成的位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.liujiajun.mapper" targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.honner.mapper" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
